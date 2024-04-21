@@ -5,5 +5,5 @@ channel = "stable"
 components = [ "rustfmt" ]
 targets = [
     "thumbv6m-none-eabi",
-    #"thumbv7m-none-eabi",
+    "thumbv7m-none-eabi",
 ]

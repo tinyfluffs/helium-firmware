@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name = "hf-skr-mini-e3-v3"
+name = "hf-btt-skr-mini-e3-v3"
 version = "0.1.0"
 authors = ["Ella Fox <ella@fox.gal>"]
 resolver = "2"

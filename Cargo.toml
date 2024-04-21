@@ -6,14 +6,16 @@ authors = ["Ella Fox <ella@fox.gal>"]
 resolver = "2"
 
 [features]
-default = ["skr_mini_e3_v3"]
+default = ["btt-skr_mini_e3_v3"]
 
-skr_mini_e3_v3 = ["hf-skr-mini-e3-v3"]
+btt-skr_mini_e3_v3 = ["hf-btt-skr-mini-e3-v3"]
+creality-crc-2405-v1-2 = ["hf-creality-crc-2405-v1-2"]
 
 [dependencies]
 hf-boards = { version = "0.1", path = "./boards" }
 
-hf-skr-mini-e3-v3 = { version = "0.1", path = "./boards/skr_mini_e3_v3", optional = true }
+hf-btt-skr-mini-e3-v3 = { version = "0.1", path = "boards/btt_skr_mini_e3_v3", optional = true }
+hf-creality-crc-2405-v1-2 = { version = "0.1", path = "boards/creality_crc-2405_v1_2", optional = true }
 
 embassy-stm32 = { version = "0.1.0", default-features = false }
 embassy-sync = { version = "0.5.0", default-features = false }
