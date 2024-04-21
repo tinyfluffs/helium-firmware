@@ -2,25 +2,17 @@
 #![no_main]
 
 use defmt::*;
-use embassy_executor::Spawner;
-use embassy_stm32::gpio::{Level, Output, Speed};
-use embassy_time::Timer;
+use embassy_stm32::gpio::{Input, Pull};
 use {defmt_rtt as _, panic_probe as _};
+use hf_boards::Board;
 
 #[embassy_executor::main]
-async fn main(_spawner: Spawner) {
-    let p = embassy_stm32::init(Default::default());
-    info!("Hello World!");
+async fn main(_spawner: embassy_executor::Spawner) -> ! {
+    #[cfg(feature = "skr_mini_e3_v3")]
+    let board = hf_skr_mini_e3_v3::new();
 
-    let mut led = Output::new(p.PB7, Level::High, Speed::Low);
+    let p = board.init();
 
     loop {
-        info!("high");
-        led.set_high();
-        Timer::after_millis(300).await;
-
-        info!("low");
-        led.set_low();
-        Timer::after_millis(300).await;
     }
 }

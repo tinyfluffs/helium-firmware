@@ -1,0 +1,68 @@
+[package]
+edition = "2021"
+name = "hf-skr-mini-e3-v3"
+version = "0.1.0"
+authors = ["Ella Fox <ella@fox.gal>"]
+resolver = "2"
+
+[features]
+default = ["stm32g0b1re"]
+
+stm32 = [
+    "embassy-stm32/defmt",
+    "embassy-stm32/time-driver-any",
+    "embassy-stm32/memory-x",
+    "embassy-stm32/unstable-pac",
+    "embassy-sync/defmt",
+    "embassy-executor/arch-cortex-m",
+    "embassy-executor/executor-thread",
+    "embassy-executor/defmt",
+    "embassy-executor/integrated-timers",
+    "embassy-time/defmt",
+    "embassy-time/defmt-timestamp-uptime",
+    "embassy-time/tick-hz-32_768",
+    "cortex-m/inline-asm",
+    "cortex-m/critical-section-single-core",
+    "futures/async-await",
+]
+
+stm32g0 = [
+    "stm32",
+    "embassy-usb/defmt",
+    "portable-atomic/unsafe-assume-single-core",
+]
+
+stm32g0b1re = [
+    "stm32g0",
+    "embassy-stm32/stm32g0b1re",
+    "embassy-stm32/exti"
+]
+
+[dependencies]
+hf-boards = { version = "0.1.0", path = "../"}
+
+embassy-stm32 = { version = "0.1.0", default-features = false }
+embassy-sync = { version = "0.5.0", default-features = false}
+embassy-executor = { version = "0.5.0", default-features = false}
+embassy-time = { version = "0.3.0", default-features = false }
+embassy-usb = { version = "0.1.0", default-features = false }
+embassy-futures = { version = "0.1.0", default-features = false }
+
+cfg-if = { version = "1.0.0", default-features = false }
+defmt = "0.3"
+defmt-rtt = "0.4"
+
+cortex-m = { version = "0.7.6" }
+cortex-m-rt = "0.7.0"
+embedded-hal = "1.0.0"
+panic-probe = { version = "0.3", features = ["print-defmt"] }
+futures = { version = "0.3.17", default-features = false, features = ["async-await"] }
+heapless = { version = "0.8", default-features = false }
+portable-atomic = { version = "1.5", default-features = false }
+
+
+[profile.dev]
+opt-level = "s"
+
+[profile.release]
+debug = 2

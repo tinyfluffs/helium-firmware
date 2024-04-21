@@ -1,23 +1,17 @@
 [package]
 edition = "2021"
-name = "helium-firmware"
+name = "hf-boards"
 version = "0.1.0"
 authors = ["Ella Fox <ella@fox.gal>"]
 resolver = "2"
 
 [features]
-default = ["skr_mini_e3_v3"]
-
-skr_mini_e3_v3 = ["hf-skr-mini-e3-v3"]
+default = []
 
 [dependencies]
-hf-boards = { version = "0.1", path = "./boards" }
-
-hf-skr-mini-e3-v3 = { version = "0.1", path = "./boards/skr_mini_e3_v3", optional = true }
-
 embassy-stm32 = { version = "0.1.0", default-features = false }
-embassy-sync = { version = "0.5.0", default-features = false }
-embassy-executor = { version = "0.5.0", default-features = false }
+embassy-sync = { version = "0.5.0", default-features = false}
+embassy-executor = { version = "0.5.0", default-features = false}
 embassy-time = { version = "0.3.0", default-features = false }
 embassy-usb = { version = "0.1.0", default-features = false }
 embassy-futures = { version = "0.1.0", default-features = false }
